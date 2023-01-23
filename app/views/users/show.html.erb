@@ -1,10 +1,16 @@
 <div>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <h3><%= @user.name %></h3>
-  <h3><%= @user.introduction %></h3>
-  <% if @user == current_user %>
-    <p><%= link_to "プロフィール編集",edit_user_registration_path %></p>
-  <% end %>
+  <div class="container px-5 px-sm-0">
+    <%= image_tag @user.get_profile_image(100,100) %>
+    <h3>name</h3>
+      <%= @user.name %>
+    
+    <h3>introduction</h3>
+      <%= @user.introduction %>
+      
+    <% if @user == current_user %>
+      <p><%= link_to "プロフィール編集",edit_user_registration_path %></p>
+    <% end %>
+  </div>
 </div>
 
 <%= render 'books/list', books: @book %>

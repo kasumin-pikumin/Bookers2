@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,24 +12,35 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to '投稿フォーム', new_book_path %>
-        </li>
-        <li>
-          <%= link_to 'Home',user_path(current_user.id) %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
-      <% end %>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">Bookers</a>
+          <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li>
+              <i class="fa-solid fa-house"></i>
+              <%= link_to 'Home', user_path(current_user.id) %>
+            </li>
+            <li>
+              <%=link_to "Users", user_path %>
+            </li>
+            <li>
+              <%= link_to "Books", books_path %>
+            </li>
+            <li>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+          <li>
+            <%= link_to "新規登録", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_user_session_path %>
+          </li>
+        <% end %>
+          </ul>
+        </div>
+      </nav>
     </header>
     <%= yield %>
   </body>
