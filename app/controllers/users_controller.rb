@@ -17,6 +17,10 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
   
+  def index
+    @books = Book.all
+  end
+  
   private
   
   def user_params
@@ -27,7 +31,7 @@ class UsersController < ApplicationController
   def is_matching_login_user
     user_id = params[:id].to_i
     unless user_id == current_user.id
-      redirect_to post_images_path
+      redirect_to root_path
     end
   end
 end
