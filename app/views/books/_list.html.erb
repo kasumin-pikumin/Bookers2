@@ -1,6 +1,10 @@
+
       <div class="col-md-3">
+        <div>
+          <%= flash[:notice] %>
+        </div>
         <h2>User info</h2>
-        <%= image_tag book.user.get_profile_image(100,100) %>
+        <%= image_tag user.get_profile_image(100,100) %>
         <table class="table">
           <tbody>
             <tr>
@@ -33,6 +37,6 @@
           <%= f.text_field :title %>
           <p>Opinion</p>
           <%= f.text_area :body %>
-          <%= f.submit 'Create Book' %>
+          <%= f.submit 'Create Book', class: "btn btn-info btn-block" %>
         <% end %>
       </div>

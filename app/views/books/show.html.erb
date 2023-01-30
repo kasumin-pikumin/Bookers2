@@ -20,14 +20,14 @@
           <tbody>
             <tr>
               <th>
-                <%= image_tag @book.user.get_profile_image(100,100) %>
-                <p><%=  link_to @book.user.name, user_path%></p>
+                <%= image_tag @books.user.get_profile_image(100,100) %>
+                <p><%=  link_to @books.user.name, user_path %></p>
               </th>
-              <th><%= @book.title %></th>
-              <th><%= @book.body %></th>
-              <% if @book.user == current_user %>
-                <th><%= link_to "Edit", edit_book_path, class: "btn btn-info btn-block"  %></th>
-                <th><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" , class: "btn btn-info btn-block" %></th>
+              <th><%= @books.title %></th>
+              <th><%= @books.body %></th>
+              <% if @books.user == current_user %>
+                <th><%= link_to "Edit", edit_book_path , class: "btn btn-info btn-block" %></th>
+                <th><%= link_to "Destroy", book_path(@books), method: :delete, "data-confirm" => "本当に消しますか？" , class: "btn btn-info btn-block" %></th>
               <% end %>
             </tr>
           </tbody>
