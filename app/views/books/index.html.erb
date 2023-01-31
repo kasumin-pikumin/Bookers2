@@ -1,5 +1,5 @@
 <div class="row">
-  <%= render 'list', user: @user, book: @book %>
+  <%= render 'list',　user: @books.user, book: @book %>
 
   <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
@@ -15,7 +15,10 @@
           <tbody>
           <% @books.each do |book| %>
             <tr>
-              <th><%= image_tag @book.user.get_profile_image(100,100) %> </th>
+              <th>
+                <%= image_tag book.user.get_profile_image(100,100) %>
+                <p><%=  link_to book.user.name, user_path %></p>
+                </th>
               <th><%= book.title %></th>
               <th><%= book.body %></th>
             </tr>
