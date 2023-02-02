@@ -1,7 +1,8 @@
-<div class="row">
-  <%= render 'list',　user: @books.user, book: @book %>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <%= render 'list', user: current_user, book: @book %>
 
-  <div class="col-md-8 offset-md-1">
+      <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
         <table class="table">
           <thead>
@@ -17,7 +18,7 @@
             <tr>
               <th>
                 <%= image_tag book.user.get_profile_image(100,100) %>
-                <p><%=  link_to book.user.name, user_path %></p>
+                <p><%= link_to book.user.name, user_path(book.user.id) %></p>
                 </th>
               <th><%= book.title %></th>
               <th><%= book.body %></th>
@@ -25,5 +26,6 @@
           <% end %>
           </tbody>
         </table>
+      </div>
+    </div>
   </div>
-</div>
