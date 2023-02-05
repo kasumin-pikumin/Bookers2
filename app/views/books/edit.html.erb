@@ -1,5 +1,13 @@
 
 <div class="container">
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %> error prohibited this obj from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="row">
     <div class="col-md-5 mx-auto">
 
@@ -12,9 +20,9 @@
 
         <p>Opinion</p>
         <%= f.text_area :body %>
-      
+
         <p><%= f.submit 'Update Book', class: "btn btn-info btn-block" %></p>
-      
+
       <% end %>
 
     </div>
