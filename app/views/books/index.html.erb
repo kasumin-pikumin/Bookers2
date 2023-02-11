@@ -7,13 +7,13 @@
       <% end %>
     </ul>
   <% end %>
-  
+
     <div class="row">
       <%= render 'list', user: current_user, book: @book %>
 
       <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
-        <table class="table">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th></th>
@@ -25,12 +25,9 @@
           <tbody>
           <% @books.each do |book| %>
             <tr>
-              <th>
-                <%= image_tag book.user.get_profile_image(100,100) %>
-                <p><%= link_to book.user.name, user_path(book.user.id) %></p>
-                </th>
-              <th><%= book.title %></th>
-              <th><%= book.body %></th>
+              <td><%= link_to image_tag(book.user.get_profile_image(100,100)), user_path(book.user.id) %></td>
+              <td><%= link_to book.title, book_path(book.id) %></td>
+              <td><%= book.body %></td>
             </tr>
           <% end %>
           </tbody>
